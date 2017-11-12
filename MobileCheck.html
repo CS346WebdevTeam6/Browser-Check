@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>
+			Mobile Check Test
+		</title>
+	</head>
+	
+	<body>
+	
+		<!--
+			Checks the screen width on the page load and adds it as a hidden value
+			in the form. The idea is to check the screen size on login and redirect
+			them to the proper pages from there. I don't think we would need separate
+			pages for mobile, just different styles and use PHP to check the type and
+			print out HTML tags with "mobile" or "nonMobile" classes. I don't know if
+			this is the best way to go about it, but there isn't a direct way to check
+			screen size with PHP.
+			
+			I also found this PHP class on the internet, although I don't know if we would\
+			be allowed to use it.
+			http://mobiledetect.net/
+		-->
+	
+		<form name = "loginForm">
+			Username: <input type = "text" name = "username"><br>
+			Password: <input type = "password" name = "password"><br>
+			<input type = "hidden" id = "screenCheck" value = "">
+			<input type = "submit">
+		</form>
+	
+	<script>
+		window.onload = function()
+		{
+			var screenWidth = window.screen.width ;
+			alert(screenWidth) ;
+			var formInput = document.getElementById("screenCheck") ;
+			if(screenWidth <= 700)
+			{
+				formInput.value = "mobile" ;
+			}
+			else
+			{
+				formInput.value = "nonMobile" ;
+			}
+		}
+	</script>
+	
+	</body>
+</html>
